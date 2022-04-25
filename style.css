@@ -1,0 +1,158 @@
+
+*, 
+*::before, 
+*::after{
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  background: #1B2838;
+  color: white;
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+/*   overflow: hidden; */
+/*   overflow-x: hidden; */
+}
+
+li{
+  list-style-type: none;
+/*   padding: 0 30px; */
+}
+
+.hidden{
+  display: none !important;
+}
+
+/* Game List Styling */
+#thumbList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+/* Three Row */
+@media screen and (min-width: 1100px){
+  #thumbList > *{
+  width: 30%;
+  }
+}
+/* Two Rows */
+@media screen and (max-width: 1059px) and (min-width: 721px){
+  #thumbList > *{
+  width: 45%;
+  }
+}
+/* One Row */
+@media screen and (max-width: 720px){
+  #thumbList > *{
+  width: 100%;
+ 
+  }
+  html, body{
+    width: 100%;
+    height: 100%;
+  }
+  #gameDetails{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+  }
+  #gameIdentity{
+    height: 50%;
+    width: 100%;
+  }
+  #gameImage{
+    width: 100%;
+    height: auto;
+    
+  }
+  #gameRatings, #gamePrice{
+    width: 100%;
+  }
+/*   #thumbList{
+    justify-content: center;
+  } */
+}
+
+
+
+/* Game Details Styling */
+#gameDetails{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+/*   justify-content:  */
+}
+
+#gameIdentity{
+  width:50%;
+}
+#gameImage{
+  height:80%;
+  width:60%;
+  background-size: cover;
+}
+
+/* Rating Styling */
+
+#gameRatings{
+  width: 50%;
+}
+#gameRatingText{
+  width: 100%;
+  font-size: 3em;
+}
+
+#gameRatingPercent{
+  font-size: 3em;
+}
+
+/* Lower Styling */
+
+/* Price Styling */
+#gamePrice{
+  width: 100%;
+  padding-top: 80px;
+}
+#originalGamePrice{
+  color: grey;
+  text-decoration: line-through;
+  font-size: 5em;
+}
+
+#saleGamePrice{
+  color: #06c606;
+  font-size: 10em;
+  padding-left: 120px;
+}
+
+#percentOff{
+  width: 100%;
+}
+
+#salePercent{
+  color: red;
+  font-size: 5em;
+}
+
+/* <div class = 'hidden' id = 'gameDetails'>
+    <section id = 'gameIdentity'>
+    <h1 id = 'gameTitle'>GAME</h1>
+    <img id = 'gameImage' src = ''>
+      </section>
+
+     <section id = 'gamePrice'>
+    <span id = 'originalGamePrice'></span>
+    <span id = 'saleGamePrice'></span>
+     </section>
+
+   <section id = 'gameRatings'>
+    <span id = 'gameRatingText'></span>
+    <span id = 'gameRatingPercent'></span>
+    </section>
+    
+   </div> */
