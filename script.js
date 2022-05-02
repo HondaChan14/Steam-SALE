@@ -1,15 +1,51 @@
-3//let url = new URL("", baseurl)
+//let url = new URL("", baseurl)
 
 let url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 let thumbList = document.getElementById("thumbList")
 let gameDetails = document.getElementById('gameDetails')
 let gameDataList = []
 
-fetch(url)
-.then(res => res.json())
-.then(data => {
+let maxPrice = document.getElementById('mPrice')
+let lowPrice = document.getElementById('lPrice')
 
+let button = document.querySelector('button')
+button.addEventListener('click', getFetch)
+
+function getFetch(){
+
+  url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&'
   
+console.log((maxPrice.value))
+  if(!isNaN(Number(maxPrice.value)) && maxPrice.value != ''){
+    url += 'upperPrice=' + maxPrice.value
+    console.log("Max Price: " + maxPrice.value)
+  }
+  else{
+    console.log("There is no Max Price")
+  }
+  
+  if(!isNaN(Number(lowPrice.value))  && lowPrice.value != ''){
+    if(url.includes('upperPrice')){
+      url += '&lowerPrice=' + lowPrice.value
+    }
+    else{
+      url += 'lowerPrice=' + lowPrice.value
+    }
+    console.log("Low Price: " + lowPrice.value)
+  }
+  else{
+    console.log("There is no Lower Price")
+  }
+
+  console.log(url)
+  
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+
+ 
+
+      
   let sortedArr = data.sort((a,b) => {
     if (a.title > b.title)
       return 1
@@ -45,7 +81,7 @@ fetch(url)
 .catch(err => {
   console.log(`Error: ${err}`)
 })
-
+}
 
 
 function gameSale(){
